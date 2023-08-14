@@ -1,0 +1,9 @@
+bin
+obj
+Debug
+debug
+packages
+refint
+.vscode
+node_modules
+Migrations

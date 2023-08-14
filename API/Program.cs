@@ -1,7 +1,4 @@
 using API.Extensions;
-using Application.Activities;
-using Application.Core;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
