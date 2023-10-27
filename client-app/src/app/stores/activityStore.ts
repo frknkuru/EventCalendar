@@ -20,6 +20,17 @@ export default class ActivityStore {
         return Array.from(this.activityRegistry.values()).sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
     }
 
+    // last part is very important basically we define the key value type and what can key get , key can get string value, and the type of key is activity array.
+    get groupedActivities() {
+        return Object.entries(
+            this.activitiesByDate.reduce((activities, activity) => {
+                const date = activity.date
+                activities[date] = activities[date] ? [...activities[date], activity] : [activity]
+                return activities
+            }, {} as { [key: string]: Activity[] })
+        )
+    }
+
     loadActivities = async () => {
         this.setLoadingInitial(true)
         try {
