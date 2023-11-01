@@ -1,7 +1,9 @@
+using System.Security.Cryptography;
 using System.Text;
 using API.Services;
 using Domain;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 
@@ -14,6 +16,7 @@ namespace API.Extensions
             services.AddIdentityCore<AppUser>(opt =>
             {
                 opt.Password.RequireNonAlphanumeric = false;
+                opt.User.RequireUniqueEmail = true;
 
             })
             .AddEntityFrameworkStores<DataContext>();
