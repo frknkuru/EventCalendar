@@ -3,6 +3,7 @@ export interface User {
     displayName: string
     password: string
     image?: string
+    token: string
 }
 
 export interface UserFormValues {
