@@ -1,9 +1,9 @@
 using Application.Activities;
 using Application.Core;
 using Application.Interfaces;
-using Application.Interfaces.Security;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
