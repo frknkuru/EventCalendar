@@ -20,6 +20,7 @@ function App() {
       userStore.getUser().finally(() => commonStore.setAppLoaded())
     }
     else {
+      userStore.logout()
       commonStore.setAppLoaded()
     }
   }, [commonStore, userStore])
