@@ -10,8 +10,10 @@ export default observer(function NavBar() {
         <Menu inverted fixed='top'>
             <Container>
                 <Menu.Item>
-                    <Button as={NavLink} to='/createActivity' positive content='Create Activity' />
+                    <Button as={NavLink} to='/activities' primary content='Activities' />
+                    <Button style={{ marginLeft: 10 }} as={NavLink} to='/createActivity' positive content='Create Activity' />
                 </Menu.Item>
+
                 <Menu.Item position='right'>
                     <Image avatar spaced='right' src={user?.image || '/assets/user.png'} />
                     <Dropdown pointing='top left' text={user?.displayName}>

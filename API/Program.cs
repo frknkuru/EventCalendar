@@ -1,3 +1,4 @@
+using API.Controllers;
 using API.Extensions;
 using API.Middleware;
 using Domain;
@@ -36,6 +37,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<ChatHub>("/chat");
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
