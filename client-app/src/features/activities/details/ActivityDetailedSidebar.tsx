@@ -9,6 +9,14 @@ interface Props {
 
 export default observer(function ActivityDetailedSidebar({ activity: { attendees, host } }: Props) {
     if (!attendees) return null;
+    // Step 1: Sort the attendees array
+    attendees = [...attendees].sort((a, b) => {
+        if (a.username === host?.username) return -1;
+        if (b.username === host?.username) return 1;
+        return 0;
+    });
+
+
     return (
         <>
             <Segment
@@ -39,7 +47,9 @@ export default observer(function ActivityDetailedSidebar({ activity: { attendees
                                 <Item.Header as='h3'>
                                     <Link to={`/profiles/${attendee.username}`}>{attendee.displayName}</Link>
                                 </Item.Header>
-                                <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>
+                                {attendee.following &&
+                                    <Item.Extra style={{ color: 'orange' }}>Following</Item.Extra>
+                                }
                             </Item.Content>
                         </Item>
                     ))}
