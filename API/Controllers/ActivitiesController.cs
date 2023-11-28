@@ -12,7 +12,7 @@ namespace API.Controllers
         [HttpGet] // /api/activites
         public async Task<IActionResult> GetActivites([FromQuery] PagingParams param, CancellationToken ct)
         {
-            return HandleResult(await Mediator.Send(new List.Query { Params = param }, ct));
+            return HandlePagedResult(await Mediator.Send(new List.Query { Params = param }, ct));
         }
 
         [Authorize]
