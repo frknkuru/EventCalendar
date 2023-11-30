@@ -10,6 +10,12 @@ export interface IProfile {
     following: boolean;
     photos?: Photo[]
 }
+export interface UserActivity {
+    id: string;
+    title: string;
+    category: string;
+    date: Date;
+}
 
 export class Profile implements IProfile {
     constructor(user: User) {
