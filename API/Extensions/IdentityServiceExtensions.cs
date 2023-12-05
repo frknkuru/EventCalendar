@@ -1,11 +1,9 @@
-using System.Security.Cryptography;
 using System.Text;
 using API.Services;
 using Domain;
 using Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 
@@ -13,7 +11,7 @@ namespace API.Extensions
 {
     public static class IdentityServiceExtensions
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddIdentityServices(this IServiceCollection services)
         {
             services.AddIdentityCore<AppUser>(opt =>
             {
