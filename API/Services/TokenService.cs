@@ -22,7 +22,8 @@ namespace API.Services
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"]));
-            Console.WriteLine(_config["TokenKey"]);
+
+            Console.WriteLine("ahahahahah : ", _config["TokenKey"]);
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor()
