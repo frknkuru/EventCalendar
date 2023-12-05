@@ -1,6 +1,5 @@
 import { Cropper } from "react-cropper";
 import 'cropperjs/dist/cropper.css';
-import { useState } from "react";
 
 
 interface Props {

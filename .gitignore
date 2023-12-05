@@ -9,3 +9,5 @@ node_modules
 Migrations
 API/events.db-shm
 API/events.db-wal
+flycreds.txt
+fly.toml

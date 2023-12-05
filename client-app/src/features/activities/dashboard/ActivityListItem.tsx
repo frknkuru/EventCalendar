@@ -4,7 +4,7 @@ import { observer } from "mobx-react-lite";
 import { Activity } from "../../../app/models/activity";
 import { format } from "date-fns";
 import ActivityListItemAttendee from "./ActivityListItemAttendee";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
     activity: Activity
