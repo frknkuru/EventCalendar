@@ -50,6 +50,10 @@ else
 {
     app.Use(async (context, next) =>
     {
+        var nonce = Guid.NewGuid().ToString("N");
+        context.Items["CSPNonce"] = nonce;
+        context.Response.Headers.Add("Content-Security-Policy", $"script-src 'self' 'nonce-{nonce}'");
+
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000");
         await next.Invoke();
     });
