@@ -32,6 +32,7 @@ app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
 app.UseXfo(opt => opt.Deny());
 app.UseCsp(opt => opt
     .BlockAllMixedContent()
+    .DefaultSources(s => s.Self())
     .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com"))
     .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
     .FrameAncestors(s => s.Self())
@@ -49,6 +50,10 @@ else
 {
     app.Use(async (context, next) =>
     {
+        var nonce = Guid.NewGuid().ToString("N");
+        context.Items["CSPNonce"] = nonce;
+        context.Response.Headers.Add("Content-Security-Policy", $"script-src 'self' 'nonce-{nonce}'");
+
         context.Response.Headers.Add("Strict-Transport-Security", "max-age=31536000");
         await next.Invoke();
     });
